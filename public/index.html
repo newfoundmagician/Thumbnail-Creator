@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Face Swap Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="background-glow" aria-hidden="true"></div>
+
+    <main class="shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-dot"></span>
+          <span>FaceSwap Studio</span>
+        </div>
+        <span class="badge">Gemini AI</span>
+      </header>
+
+      <section class="hero">
+        <h1>One-click AI Face Swap</h1>
+        <p>
+          Upload your thumbnail and portrait image. We blend lighting, angle, and skin tone for a
+          realistic creator-ready result.
+        </p>
+      </section>
+
+      <section class="panel-grid">
+        <form id="faceSwapForm" class="glass-card controls">
+          <h2>Input</h2>
+
+          <label for="thumbnail">Thumbnail image</label>
+          <input type="file" id="thumbnail" name="thumbnail" accept="image/*" required />
+
+          <label for="portrait">Portrait / face image</label>
+          <input type="file" id="portrait" name="portrait" accept="image/*" required />
+
+          <label for="instructions">Extra instructions (optional)</label>
+          <textarea
+            id="instructions"
+            name="instructions"
+            rows="4"
+            placeholder="Blend naturally with existing lighting and keep original hair/background."
+          ></textarea>
+
+          <button type="submit" id="generateBtn">Generate Face Swap</button>
+
+          <section id="statusSection" class="status" aria-live="polite"></section>
+        </form>
+
+        <section id="resultSection" class="glass-card result">
+          <div class="result-header">
+            <h2>Generated Result</h2>
+            <a id="downloadBtn" class="download-btn" download="face-swap-result.png">Download</a>
+          </div>
+          <div class="image-stage">
+            <img id="resultImage" alt="Generated face swap result" />
+            <p class="result-placeholder">Your generated image will appear here.</p>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
